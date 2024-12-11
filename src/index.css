@@ -1,7 +1,8 @@
 
 
 .done {
-  color: #00a700
+  color: pink;
+  font-weight: bold;
 }
 
 .list-group-item {

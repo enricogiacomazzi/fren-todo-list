@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css'
 import { AddTodo } from './components/Add-todo'
 import { TodoList } from './components/Todo-list'
+import {GetTodos, AddTodoItem, CompleteTodo, DeleteTodo, } from './api';
 
 const TODO_URL = 'http://localhost:3000/todos';
 
@@ -10,22 +11,27 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   async function getTodos() {
-      const response = await fetch(TODO_URL);
-      setTodos(await response.json());
+      setTodos(await GetTodos());
   }
 
   async function addTodo(todo) {
-    const respose = await fetch(TODO_URL, {
-        method: 'POST',
-        body: JSON.stringify(todo)
-    });
-
-    const created = await respose.json();
+    const created = await AddTodoItem(todo);
     setTodos([...todos, created]);
-
-    // await getTodos();
-
   }
+
+  const completeTodo = async (todo) => {
+    const edited = await CompleteTodo(todo);
+
+    setTodos(todos
+      .map(t => t.id === edited.id ? edited : t));
+  }
+
+  const deleteTodo = async (todo) => {
+    if(await DeleteTodo(todo)) {
+      setTodos(todos.filter(t => t.id !== todo.id));
+    }
+  }
+
 
   useEffect(() => {
       getTodos();
@@ -39,7 +45,11 @@ function App() {
           <AddTodo add={addTodo} />
         </div>
         <div className="row">
-          <TodoList todos={todos} />  
+          <TodoList 
+            todos={todos} 
+            completeTodo={completeTodo} 
+            deleteTodo={deleteTodo} 
+          />  
         </div>
       </div>
     </div>

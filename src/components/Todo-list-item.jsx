@@ -1,10 +1,6 @@
 
 
-export const TodoListItem = ({todo}) => {
-
-    const completeTodo = () => {
-
-    }
+export const TodoListItem = ({todo, completeTodo, deleteTodo}) => {
 
     return (
         <li className="list-group-item">
@@ -13,7 +9,7 @@ export const TodoListItem = ({todo}) => {
                 <button onClick={completeTodo} className="btn btn-primary m-1">
                     <i className="fa fa-times" />
                 </button>
-                <button className="btn btn-danger m-1">
+                <button onClick={deleteTodo} className="btn btn-danger m-1">
                     <i className="fa fa-trash" />
                 </button>
             </div>

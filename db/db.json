@@ -3,32 +3,17 @@
     {
       "id": "d536",
       "text": "fare la spesa",
-      "done": false
-    },
-    {
-      "id": "65fd",
-      "text": "comprare il latte",
       "done": true
     },
     {
       "id": "bb65",
       "text": "fare aperitivo",
-      "done": false
-    },
-    {
-      "id": "be42",
-      "text": "pippo",
-      "done": false
-    },
-    {
-      "id": "e792",
-      "text": "pluto",
-      "done": false
+      "done": true
     },
     {
       "id": "5e6f",
       "text": "studiare react",
-      "done": false
+      "done": true
     },
     {
       "id": "5826",
@@ -36,23 +21,16 @@
       "done": false
     },
     {
-      "id": "fbbb",
-      "text": "fefgdrgr",
-      "done": false
-    },
-    {
       "id": "6258",
       "text": "fgsdfgdsfg",
-      "done": false
+      "done": true
     },
     {
-      "id": "ce63",
-      "text": "adfgdafg",
-      "done": false
+      "id": "a3c9"
     },
     {
-      "id": "4fa1",
-      "text": "fsdsdfs",
+      "id": "98ce",
+      "text": "sdfsdf",
       "done": false
     }
   ]
