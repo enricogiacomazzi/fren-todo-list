@@ -1,33 +1,23 @@
-
+import axios from "axios";
 const TODO_URL = 'http://localhost:3000/todos';
 
 export async function GetTodos() {
-    const response = await fetch(TODO_URL);
-    return await response.json()
+    const response = await axios.get(TODO_URL);
+    return response.data;
 }
 
 export async function AddTodoItem(todo) {
-    const respose = await fetch(TODO_URL, {
-        method: 'POST',
-        body: JSON.stringify(todo)
-    });
-
-    return  await respose.json();
+    const response = await axios.post(TODO_URL, todo);
+    return response.data;
   }
 
   export const CompleteTodo = async (todo) => {
-    const res = await fetch(`${TODO_URL}/${todo.id}`, {
-        method: 'PATCH',
-        body: JSON.stringify({...todo,  done: !todo.done})
-    });
-
-    return await res.json();
+    const res = await axios.patch(`${TODO_URL}/${todo.id}`, 
+      {...todo,  done: !todo.done});
+    return res.data;
   }
 
   export const DeleteTodo = async (todo) => {
-    const res = await fetch(`${TODO_URL}/${todo.id}`, {
-        method: 'DELETE'
-    });
-
-    return res.ok;
+    const res = await axios.delete(`${TODO_URL}/${todo.id}`);
+    return res.status === 200;
   }

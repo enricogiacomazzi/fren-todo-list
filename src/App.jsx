@@ -4,8 +4,6 @@ import { AddTodo } from './components/Add-todo'
 import { TodoList } from './components/Todo-list'
 import {GetTodos, AddTodoItem, CompleteTodo, DeleteTodo, } from './api';
 
-const TODO_URL = 'http://localhost:3000/todos';
-
 function App() {
 
   const [todos, setTodos] = useState([]);
