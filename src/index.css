@@ -1,0 +1,10 @@
+
+
+.done {
+  color: #00a700
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+}
